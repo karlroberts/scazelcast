@@ -1,0 +1,218 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+%[	scazelcast-demo/src/main/scala/com/owtelse/model/Move.scala	/^  def %[B](f: Position => B) = transmogrify(f)$/;"	f
+BooksTest	scazelcast-akka/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^class BooksTest extends Specification with ThrownExpectations { def is = s2"""$/;"	c
+BooksTest	scazelcast/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^class BooksTest extends Specification with ThrownExpectations { def is = s2"""$/;"	c
+Boot	scazelcast-demo/src/main/scala/com/example/Boot.scala	/^object Boot extends App {$/;"	o
+BuildSettings	project/Build.scala	/^object BuildSettings {$/;"	o
+DefaultScalaCheckTest	scazelcast-akka/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^object DefaultScalaCheckTest extends Properties("String") {$/;"	o
+DefaultScalaCheckTest	scazelcast/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^object DefaultScalaCheckTest extends Properties("String") {$/;"	o
+Fixtures	scazelcast-demo/src/test/scala/com/owtelse/model/PositionReportTest.scala	/^object Fixtures {$/;"	o
+GetPosRep	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  case class GetPosRep(key: String) extends MapBasedCacheRequest$/;"	c
+GetPosRep	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  case class GetPosRep(key: String) extends MapBasedCacheRequest$/;"	m
+HEADER	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^  val HEADER = "---"$/;"	V
+HazelcastActor	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^class HazelcastActor(hostname: String , port: Int, confFileName: String , timeout: FiniteDuration) extends Actor with HazelcastService$/;"	c
+HazelcastActor	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^object HazelcastActor {$/;"	o
+HazelcastService	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^trait HazelcastService { self: Actor =>$/;"	t
+LOW_BATTERY	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^case object LOW_BATTERY extends Status(2)$/;"	o
+Latitude	scazelcast-demo/src/main/scala/com/owtelse/model/Position.scala	/^case class Latitude(lat: Double) {$/;"	c
+Latitude	scazelcast-demo/src/main/scala/com/owtelse/model/Position.scala	/^case class Latitude(lat: Double) {$/;"	m
+MapBasedCacheRequest	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  sealed trait MapBasedCacheRequest$/;"	t
+MapBasedCacheResponse	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  sealed trait MapBasedCacheResponse$/;"	t
+Move	scazelcast-demo/src/main/scala/com/owtelse/model/Move.scala	/^class Move(val m: Movement) {$/;"	c
+Move	scazelcast-demo/src/main/scala/com/owtelse/model/Move.scala	/^object Move {$/;"	o
+MoveTest	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^class MoveTest extends Specification {$/;"	c
+Movement	scazelcast-demo/src/main/scala/com/owtelse/model/package.scala	/^  type Movement = Position => Position$/;"	T
+MyBuild	project/Build.scala	/^object MyBuild extends Build {$/;"	o
+MyJsonMarshaller	scazelcast-demo/src/main/scala/com/owtelse/util/MyJsonMarshaller.scala	/^object MyJsonMarshaller$/;"	o
+MyService	scazelcast-demo/src/main/scala/com/example/MyService.scala	/^trait MyService$/;"	t
+MyServiceActor	scazelcast-demo/src/main/scala/com/example/MyService.scala	/^class MyServiceActor(cache: ActorRef)$/;"	c
+MyServiceActor	scazelcast-demo/src/main/scala/com/example/MyService.scala	/^object MyServiceActor$/;"	o
+MyServiceSpec	scazelcast-demo/src/test/scala/com/example/MyServiceSpec.scala	/^class MyServiceSpec extends Specification with Specs2RouteTest with MyService {$/;"	c
+NecLoadProjectBuild	scazelcast-demo/project/build.scala	/^object NecLoadProjectBuild extends Build {$/;"	o
+OK	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^case object OK extends Status(1)$/;"	o
+PREFIX_HASH	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^  val PREFIX_HASH = "%%"$/;"	V
+PREFIX_POSREP	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^  val PREFIX_POSREP = "01"$/;"	V
+PREFIX_STATUS	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^  val PREFIX_STATUS = "02"$/;"	V
+PREFIX_TIME	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^  val PREFIX_TIME = "03"$/;"	V
+Position	scazelcast-demo/src/main/scala/com/owtelse/model/Position.scala	/^case class Position(lat: Double, lng:Double)$/;"	c
+Position	scazelcast-demo/src/main/scala/com/owtelse/model/Position.scala	/^case class Position(lat: Double, lng:Double)$/;"	m
+PositionReport	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^case class PositionReport(term: Terminal, pos: Position, status: Status, time: DateTime) extends TerminalMessage {$/;"	c
+PositionReport	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^case class PositionReport(term: Terminal, pos: Position, status: Status, time: DateTime) extends TerminalMessage {$/;"	m
+PositionReport	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^object PositionReport {$/;"	o
+PositionReportExtractor	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^object PositionReportExtractor {$/;"	o
+PositionReportStringMarshaller	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^  implicit val PositionReportStringMarshaller: Marshaller[PositionReport] =$/;"	V
+PositionReportTest	scazelcast-demo/src/test/scala/com/owtelse/model/PositionReportTest.scala	/^class PositionReportTest extends Specification    {$/;"	c
+PositionReportUnmarshaller	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^  implicit val PositionReportUnmarshaller =$/;"	V
+PutPosRep	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  case class PutPosRep(key: String, value: PositionReport) extends MapBasedCacheRequest$/;"	c
+PutPosRep	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  case class PutPosRep(key: String, value: PositionReport) extends MapBasedCacheRequest$/;"	m
+Resolvers	project/Resolvers.scala	/^object Resolvers {$/;"	o
+Status	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^object Status {$/;"	o
+Status	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^sealed abstract class Status(val ord: Int)$/;"	a
+Status	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^sealed abstract class Status(val ord: Int)$/;"	c
+Terminal	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^case class Terminal(id: String) {$/;"	c
+Terminal	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^case class Terminal(id: String) {$/;"	m
+TerminalMessage	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^object TerminalMessage {$/;"	o
+TerminalMessage	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^sealed trait TerminalMessage {$/;"	t
+actorRefFactory	scazelcast-demo/src/main/scala/com/example/MyService.scala	/^  def actorRefFactory = context$/;"	f
+actorRefFactory	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  def actorRefFactory = context$/;"	f
+actorRefFactory	scazelcast-demo/src/test/scala/com/example/MyServiceSpec.scala	/^  def actorRefFactory = system$/;"	f
+apply	scazelcast-demo/src/main/scala/com/owtelse/model/Move.scala	/^  def apply(m: Movement) = new Move(m)$/;"	f
+apply	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^  def apply(ord: Int): Status = ord match {$/;"	f
+body	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val body = message.drop(header.size + 1).dropRight(11) \/\/ drop header and comma, drop the hash and comma from the end$/;"	V
+buildSettings	project/Build.scala	/^  val buildSettings = Defaults.defaultSettings ++ Seq($/;"	V
+bytes2hex	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^  def bytes2hex(bytes: Array[Byte]): String = bytes2hex(bytes, None)$/;"	f
+bytes2hex	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^  def bytes2hex(bytes: Array[Byte], sep: Option[String]): String = {$/;"	f
+cache1	scazelcast-demo/src/main/scala/com/example/Boot.scala	/^  val cache1 = system.actorOf(HazelcastActor.props(), "hazelcast1")$/;"	V
+calchash	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val calchash = md5hex_8chars(body)$/;"	V
+config	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  val config = if(confFileName.isEmpty) new Config() else new ClasspathXmlConfig(confFileName)$/;"	V
+coreDeps	project/Build.scala	/^  val coreDeps = Seq($/;"	V
+e1	scazelcast-akka/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^  def e1 = {$/;"	f
+e1	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^  def e1 = {$/;"	f
+e1	scazelcast-demo/src/test/scala/com/owtelse/model/PositionReportTest.scala	/^  def e1 = {$/;"	f
+e1	scazelcast/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^  def e1 = {$/;"	f
+e2	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^  def e2 = {$/;"	f
+e2	scazelcast-demo/src/test/scala/com/owtelse/model/PositionReportTest.scala	/^  def e2 = {$/;"	f
+e3	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^  def e3  = {$/;"	f
+e3	scazelcast-demo/src/test/scala/com/owtelse/model/PositionReportTest.scala	/^  def e3 = todo$/;"	f
+e4	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^  def e4 = {$/;"	f
+e4	scazelcast-demo/src/test/scala/com/owtelse/model/PositionReportTest.scala	/^  def e4 = todo$/;"	f
+e5	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^  def e5 = {$/;"	f
+e5	scazelcast-demo/src/test/scala/com/owtelse/model/PositionReportTest.scala	/^  def e5 = todo$/;"	f
+executionContext	scazelcast-demo/src/main/scala/com/example/MyService.scala	/^  implicit def executionContext = actorRefFactory.dispatcher$/;"	f
+expectedMessagebeforeHash	scazelcast-demo/src/test/scala/com/owtelse/model/PositionReportTest.scala	/^    val expectedMessagebeforeHash = "---,01,000001,31.000000,31.000000,0201,03" \/\/ then gets the now then the hash$/;"	V
+finiteDurationJsonFormat	scazelcast-demo/src/main/scala/com/owtelse/util/MyJsonMarshaller.scala	/^  implicit object finiteDurationJsonFormat$/;"	o
+flatmap	scazelcast-demo/src/main/scala/com/owtelse/model/Move.scala	/^  def flatmap[B](f: Position => Seq[B]): Position => Seq[B] = ???$/;"	f
+fleft	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^    val fleft = (p: Position) => Position(p.lat, p.lng + 1)$/;"	V
+from	scazelcast-demo/src/main/scala/com/owtelse/model/Move.scala	/^  def from(p: Position) = m(p)$/;"	f
+fromMessage	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^  def fromMessage(message: String): Option[PositionReport] = for {$/;"	f
+ftStatus	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val ftStatus = f"$PREFIX_STATUS${status.ord}%02d"$/;"	V
+ftTime	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val ftTime = s"$PREFIX_TIME${time.getMillis}"$/;"	V
+fup	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^    val fup = (p: Position) => Position(p.lat + 1, p.lng)$/;"	V
+futureResponse	scazelcast-demo/src/main/scala/com/example/MyService.scala	/^            val futureResponse: Future[Option[PositionReport]] = actorRefFactory.actorSelection("..\/hazelcast1").ask($/;"	V
+getFromCache	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  def getFromCache(key: String): Option[PositionReport] = {$/;"	f
+getLat	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^    val getLat: Position => Double = move % ((p:Position) => p.lat)$/;"	V
+hash	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    lazy val hash: String = md5hex_8chars(messagebody)$/;"	V
+hash	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val hash = parts(7).substring(2) \/\/ strip prefix$/;"	V
+hashmatches	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val hashmatches = (calchash == hash )$/;"	V
+hazelcast	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  val hazelcast: HazelcastInstance = Hazelcast.newHazelcastInstance(config)$/;"	V
+hazelcastV	project/Build.scala	/^  val hazelcastV = "3.2.1"$/;"	V
+header	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val header = parts(0)$/;"	V
+headers	scazelcast-demo/src/main/scala/com/example/MyService.scala	/^            val headers = List(HttpHeaders.Location(s"posRep\/$termId"), HttpHeaders.`Last-Modified`)$/;"	V
+hex2bytes	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^  def hex2bytes(hex: String): Array[Byte] = {$/;"	f
+index	scazelcast-demo/src/main/scala/com/example/MyService.scala	/^  lazy val index =$/;"	V
+is	scazelcast-akka/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^class BooksTest extends Specification with ThrownExpectations { def is = s2"""$/;"	f
+is	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^  override def is = s2"""$/;"	f
+is	scazelcast-demo/src/test/scala/com/owtelse/model/PositionReportTest.scala	/^  override def is = s2"""$/;"	f
+is	scazelcast/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^class BooksTest extends Specification with ThrownExpectations { def is = s2"""$/;"	f
+lat	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val lat = parts(3)$/;"	V
+latString	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val latString = f"${pos.lat}%.6f"$/;"	V
+libs	scazelcast-demo/project/build.scala	/^  val libs = Seq($/;"	V
+lng	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val lng = parts(4)$/;"	V
+lngString	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val lngString = f"${pos.lng}%.6f"$/;"	V
+m	scazelcast-demo/src/main/scala/com/owtelse/model/Move.scala	/^class Move(val m: Movement) {$/;"	V
+macros	project/Build.scala	/^  lazy val macros: Project = Project($/;"	V
+makeReportString	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^  def makeReportString(report: TerminalMessage) = {$/;"	f
+map	scazelcast-demo/src/main/scala/com/owtelse/model/Move.scala	/^  def map(m: Movement): Move = this ~> Move(m)$/;"	f
+marshaller	scazelcast-demo/src/main/scala/com/owtelse/util/MyJsonMarshaller.scala	/^  implicit val marshaller =$/;"	V
+md5	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^  def md5(s: String): Array[Byte] = {$/;"	f
+md5String	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^  val md5String = md5 _ andThen bytes2hex _$/;"	V
+md5hex	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^  def md5hex(str: String) = bytes2hex(md5(str))$/;"	f
+md5hex_8chars	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^  def md5hex_8chars(str: String ) = md5hex(str) takeRight 8$/;"	f
+message	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    lazy val message = List(HEADER, messagebody).mkString(",")$/;"	V
+messagebody	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    lazy val messagebody = report match {$/;"	V
+mkPosRepBody	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^  def mkPosRepBody(term: Terminal, pos: Position, status: Status, time: DateTime) = {$/;"	f
+model	scazelcast-demo/src/main/scala/com/owtelse/model/package.scala	/^package object model {$/;"	o
+move	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^    val move = Move((p: Position) => Position(p.lat + 1, p.lng))$/;"	V
+moveLeft	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^    val moveLeft = Move((p: Position) => Position(p.lat, p.lng + 1))$/;"	V
+moveLeft	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^    val moveLeft = Move(fleft)$/;"	V
+moveUp	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^    val moveUp = Move((p: Position) => Position(p.lat + 1, p.lng))$/;"	V
+moveUp	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^    val moveUp = Move(fup)$/;"	V
+myRoute	scazelcast-demo/src/main/scala/com/example/MyService.scala	/^  val myRoute =$/;"	V
+mySettings	scazelcast-demo/project/build.scala	/^  val mySettings = Defaults.defaultSettings ++ Seq($/;"	V
+now	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^  def now = DateTime.now$/;"	f
+nscalaV	project/Build.scala	/^  val nscalaV = "1.0.0"$/;"	V
+option	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^        val option = fromMessage(data.asString)$/;"	V
+ord	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^sealed abstract class Status(val ord: Int)$/;"	V
+owtelse	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^package object owtelse {$/;"	o
+p1	scazelcast-demo/src/test/scala/com/owtelse/model/PositionReportTest.scala	/^  val p1 = Position(31.000, 31.000)$/;"	V
+paradiseVersion	project/Build.scala	/^  val paradiseVersion = "2.0.0"$/;"	V
+parseDouble	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^  def parseDouble(s: String): Option[Double] = try {$/;"	f
+parseInt	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^  def parseInt(s: String): Option[Int] = try {$/;"	f
+parseLong	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^  def parseLong(s: String): Option[Long] = try {$/;"	f
+parsed	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^      val parsed =  for {$/;"	V
+part	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^      println(s"bah! parts.length ${parts.length} header=$header typepart=$typepart  hashmatches=$hashmatches")$/;"	T
+part	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    if (parts.length == 8 && header == "---" && typepart == "01" && hashmatches) {$/;"	T
+part	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val typepart = parts(1)$/;"	T
+parts	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val parts = message.split(",")$/;"	V
+pos1	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^    val pos1 = Position(33.000, 33.000)$/;"	V
+possibleReport	scazelcast-demo/src/test/scala/com/owtelse/model/PositionReportTest.scala	/^    val possibleReport = PositionReportExtractor.fromMessage(wire) \/\/ reverse the transformation$/;"	V
+pr1	scazelcast-demo/src/test/scala/com/owtelse/model/PositionReportTest.scala	/^  val pr1 = PositionReport(Terminal("000001"), p1, OK, testnow)$/;"	V
+propConcatString	scazelcast-akka/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^  val propConcatString = forAll { (s1: String, s2: String) =>$/;"	V
+propConcatString	scazelcast/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^  val propConcatString = forAll { (s1: String, s2: String) =>$/;"	V
+propReverseList	scazelcast-akka/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^  val propReverseList  = forAll { l: List[String] => l.reverse.reverse == l }$/;"	V
+propReverseList	scazelcast/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^  val propReverseList  = forAll { l: List[String] => l.reverse.reverse == l }$/;"	V
+props	scazelcast-demo/src/main/scala/com/example/MyService.scala	/^  def props(cache: ActorRef): Props =$/;"	f
+props	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  def props(hostname: String = "", port: Int = 0, confFileName: String = "", timeout: FiniteDuration = 0 seconds) : Props = {$/;"	f
+putInCache	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  def putInCache(key:String, value:PositionReport) = {$/;"	f
+read	scazelcast-demo/src/main/scala/com/owtelse/util/MyJsonMarshaller.scala	/^    def read(value: JsValue) = value match$/;"	f
+receive	scazelcast-demo/src/main/scala/com/example/MyService.scala	/^  def receive = runRoute(myRoute)$/;"	f
+receive	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  def receive = receiveNormal$/;"	f
+receiveNormal	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  def receiveNormal: Receive = {$/;"	f
+report	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^  lazy private[this] val report = makeReportString(this)$/;"	V
+reportHash	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    lazy val reportHash = s"$PREFIX_HASH$hash"$/;"	V
+result	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^    val result = getLat(pos1)$/;"	V
+result	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^    val result = move.from(pos1)$/;"	V
+result	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^    val result = moveUp ~> moveLeft from pos1$/;"	V
+result1	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^    val result1 = moveUp map fleft map fup from pos1$/;"	V
+result1	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^    val result1 = moveUp map identity from pos1$/;"	V
+result2	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^    val result2 = moveUp map (fleft compose fup) from pos1$/;"	V
+rev2	scazelcast-akka/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^    val rev2 = s.reverse.reverse$/;"	V
+rev2	scazelcast/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^    val rev2 = s.reverse.reverse$/;"	V
+root	project/Build.scala	/^  lazy val root: Project = Project($/;"	V
+root	scazelcast-demo/project/build.scala	/^  val root = Project("scazelcast-demo", file("."), settings = mySettings)$/;"	V
+roundAt	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^  def roundAt(p: Int)(n: Double): Double = {$/;"	f
+roundAt6	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^  def roundAt6(d: Double) = roundAt(6)(d)$/;"	f
+s	scazelcast-akka/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^    val s = "hello Karl"$/;"	V
+s	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^    val s = math pow(10, p); (math round n * s) \/ s$/;"	V
+s	scazelcast/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^    val s = "hello Karl"$/;"	V
+scazelcastAkka	project/Build.scala	/^  lazy val scazelcastAkka: Project = Project($/;"	V
+scazelcastApi	project/Build.scala	/^  lazy val scazelcastApi: Project = Project($/;"	V
+scazelcastDemo	project/Build.scala	/^  lazy val scazelcastDemo: Project = Project($/;"	V
+secondsFromEpoc	scazelcast-demo/src/main/scala/com/owtelse/package.scala	/^  def secondsFromEpoc = now.getMillis \/ 1000$/;"	f
+service1	scazelcast-demo/src/main/scala/com/example/Boot.scala	/^  val service1 = system.actorOf(MyServiceActor.props(cache1), "my_service1")$/;"	V
+sprayRepo	project/Resolvers.scala	/^    val sprayRepo = "Spray.io Repo" at "http:\/\/repo.spray.io\/"$/;"	V
+statsJsonMarshaller	scazelcast-demo/src/main/scala/com/owtelse/util/MyJsonMarshaller.scala	/^  val statsJsonMarshaller = SprayJsonSupport.sprayJsonMarshaller(jsonFormat8(Stats))$/;"	V
+statsStringMarshaller	scazelcast-demo/src/main/scala/com/owtelse/util/MyJsonMarshaller.scala	/^  val statsStringMarshaller: Marshaller[Stats] =$/;"	V
+status	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val status = parts(5).substring(2)$/;"	V
+stop	scazelcast-demo/src/main/scala/com/example/Boot.scala	/^  def stop: Unit = system.shutdown()$/;"	f
+supportedContentTypes	scazelcast-demo/src/main/scala/com/owtelse/util/MyJsonMarshaller.scala	/^  val supportedContentTypes = List[ContentType](`application\/json`, `text\/xml`, `text\/plain`)$/;"	V
+system	scazelcast-demo/src/main/scala/com/example/Boot.scala	/^  implicit val system = ActorSystem("on-spray-can")$/;"	V
+termID	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val termID = parts(2)$/;"	V
+termId	scazelcast-demo/src/main/scala/com/example/MyService.scala	/^            val termId = posRep.term.id \/\/ replace this with a Lens$/;"	V
+termString	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val termString = term.id$/;"	V
+testnow	scazelcast-demo/src/test/scala/com/owtelse/model/MoveTest.scala	/^  val testnow = now$/;"	V
+testnow	scazelcast-demo/src/test/scala/com/owtelse/model/PositionReportTest.scala	/^  val testnow = now$/;"	V
+theCache	scazelcast-demo/src/main/scala/com/example/MyService.scala	/^  def theCache = cache$/;"	f
+time	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val time = parts(6).substring(2) \/\/ strip prefix$/;"	V
+timeout	scazelcast-demo/src/main/scala/com/example/Boot.scala	/^  implicit val timeout = Timeout(5.seconds)$/;"	V
+transmogrify	scazelcast-demo/src/main/scala/com/owtelse/model/Move.scala	/^  def transmogrify[B](f: Position => B): Position => B = m andThen f$/;"	f
+typepart	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^    val typepart = parts(1)$/;"	V
+ue	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  case class PutPosRep(key: String, value: PositionReport) extends MapBasedCacheRequest$/;"	V
+ue	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^  def putInCache(key:String, value:PositionReport) = {$/;"	V
+ue	scazelcast-demo/src/main/scala/com/owtelse/util/MyJsonMarshaller.scala	/^    def read(value: JsValue) = value match$/;"	V
+unapply	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^  def unapply(message: String): Option[(Terminal, Position, Status, DateTime)] = {$/;"	f
+versionV	project/Build.scala	/^  val versionV = "0.1"$/;"	V
+wire	scazelcast-demo/src/test/scala/com/owtelse/model/PositionReportTest.scala	/^    val wire = pr1.wireMessage$/;"	V
+wireMessage	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^  def wireMessage: String$/;"	f
+wireMessage	scazelcast-demo/src/main/scala/com/owtelse/model/PositionReports.scala	/^  override def wireMessage = report;$/;"	f
+write	scazelcast-demo/src/main/scala/com/owtelse/util/MyJsonMarshaller.scala	/^    def write(c: FiniteDuration) = JsNumber(c.toNanos)$/;"	f
+x	scazelcast-akka/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^  val x = propConcatString.check$/;"	V
+x	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^    val x:JMap[String, String] = hazelcast.getMap("PositionReports")$/;"	V
+x	scazelcast/src/test/scala/dummy/DefaultScalaCheckTest.scala	/^  val x = propConcatString.check$/;"	V
+y	scazelcast-demo/src/main/scala/com/owtelse/service/hazelcast/HazelcastActor.scala	/^    val y:MMap[String, String] = x$/;"	V
+~>(	scazelcast-demo/src/main/scala/com/owtelse/model/Move.scala	/^  def ~>(that: Move) = Move(m andThen that.m)$/;"	f
