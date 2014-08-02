@@ -2,18 +2,15 @@ package com.owtelse.akka
 
 import akka.actor.{Actor, Props}
 import scala.concurrent.duration._
-import collection.mutable.{Map => MMap}
-import java.util.{Map => JMap}
 import com.hazelcast.config.{ClasspathXmlConfig, Config}
 import com.hazelcast.core.{Hazelcast, HazelcastInstance}
-import com.owtelse.scazelcast.Map._
 
 object HazelcastMessages {
   sealed trait MapBasedCacheRequest
   sealed trait MapBasedCacheResponse
-  case class GetPosRep(key: String) extends MapBasedCacheRequest
+  case class GetPosRep[K](key: K) extends MapBasedCacheRequest
   //NB PosRep will be stored as a String for marshalling
-  case class PutPosRep[T](key: String, value: T) extends MapBasedCacheRequest
+  case class PutPosRep[K, V](key: K, value: V) extends MapBasedCacheRequest
   //  case class GetResult(posRep: Option[PositionReport]) extends MapBasedCacheResponse
 }
 
@@ -41,11 +38,12 @@ class HazelcastActor(hostname: String , port: Int, confFileName: String , timeou
 
   def receive = receiveNormal
 
+  import com.owtelse.scazelcast.Map._
   def receiveNormal: Receive = {
     case GetPosRep(key) => {
-      sender ! getFromCache[String,String](hazelcast, "PositionReports")(key) // sender needs to handle None or Some(PositionReport)
+      sender ! get(hazelcast, "PositionReports")(key) // sender needs to handle None or Some(PositionReport)
     }
-    case PutPosRep(key, value: String) => putInCache[String,String](hazelcast, "PositionReports")(key, value)
+    case PutPosRep(key, value) => put(hazelcast, "PositionReports")(key, value)
     case wtf => unhandled(s"Dont know what to do with this ${wtf.toString}")
   }
 
