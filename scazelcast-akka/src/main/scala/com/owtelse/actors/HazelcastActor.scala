@@ -1,4 +1,4 @@
-package com.owtelse.akka
+package com.owtelse.actors
 
 import akka.actor.{Actor, Props}
 import scala.concurrent.duration._
@@ -28,7 +28,7 @@ object HazelcastActor {
 
 class HazelcastActor(hostname: String , port: Int, confFileName: String , timeout: FiniteDuration) extends Actor with HazelcastService
 {
-  import com.owtelse.akka.HazelcastMessages._
+  import com.owtelse.actors.HazelcastMessages._
 
   val config = if(confFileName.isEmpty) new Config() else new ClasspathXmlConfig(confFileName)
 
