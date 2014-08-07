@@ -17,22 +17,34 @@ object HazelcastMessages {
 object HazelcastActor {
 
 
-  def props(hostname: String = "", port: Int = 0, confFileName: String = "", timeout: FiniteDuration = 0 seconds) : Props = {
+  def props(namePrefix: String = "scazelcast", hostname: String = "", port: Int = 0, confFileName: String = "", timeout: FiniteDuration = 0 seconds) : Props = {
     //    import java.net.InetSocketAddress
     //    val remote = new InetSocketAddress(hostname, port)
-    Props(new HazelcastActor(hostname, port, confFileName, timeout))
+    Props(new HazelcastActor(namePrefix, hostname, port, confFileName, timeout))
   }
 
 
 }
 
-class HazelcastActor(hostname: String , port: Int, confFileName: String , timeout: FiniteDuration) extends Actor with HazelcastService
+/**
+ *
+ * @param hostname
+ * @param port
+ * @param confFileName
+ * @param timeout
+ * @param namePrefix used to id DistributedObjects for this Actor
+ */
+class HazelcastActor(namePrefix: String, hostname: String , port: Int, confFileName: String , timeout: FiniteDuration) extends Actor
+with HazelcastService
 {
   import com.owtelse.actors.HazelcastMessages._
 
   val config = if(confFileName.isEmpty) new Config() else new ClasspathXmlConfig(confFileName)
 
   val hazelcast: HazelcastInstance = Hazelcast.newHazelcastInstance(config)
+
+  val mapName = namePrefix + "Map"
+  val idGenName = namePrefix + "IdGen"
 
   def actorRefFactory = context
 
@@ -41,16 +53,25 @@ class HazelcastActor(hostname: String , port: Int, confFileName: String , timeou
   import com.owtelse.scazelcast.Map._
   def receiveNormal: Receive = {
     case GetPosRep(key) => {
-      sender ! get(hazelcast, "PositionReports")(key) // sender needs to handle None or Some(PositionReport)
+      sender ! get(hazelcast, mapName)(key) // sender needs to handle None or Some(PositionReport)
     }
-    case PutPosRep(key, value) => put(hazelcast, "PositionReports")(key, value)
+    case PutPosRep(key, value) => put(hazelcast, mapName)(key, value)
     case wtf => unhandled(s"Dont know what to do with this ${wtf.toString}")
   }
 
 
 }
 
-trait HazelcastService { self: Actor =>
-
-
+trait HazelcastService {
+  val config: Config
+  val hazelcast: HazelcastInstance
+  val idGenName: String
 }
+
+trait IdGen { self: HazelcastService =>
+  import com.owtelse.scazelcast.{IdGenerator => Gen}
+  def initIDGen(i: Long) = Gen.init(hazelcast, idGenName)(i)
+  def newId = Gen.newId(hazelcast, idGenName)
+}
+
+
