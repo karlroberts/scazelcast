@@ -1,4 +1,4 @@
-package com.owtelse.scazelcast
+package com.owtelse.scazelcast.hazelcast
 
 import com.hazelcast.core.HazelcastInstance
 import com.hazelcast.core.{IdGenerator => HzIdGenerator}
@@ -9,7 +9,7 @@ import com.hazelcast.core.{IdGenerator => HzIdGenerator}
  * TODO this should this be a typeclass
  * TODO need to prevent nulls so method is predictable, lift to Option?
  */
-object IdGenerator {
+trait HazelcastIdGenerator {
 
   /**
    * Try to initialize this IdGenerator instance with given id. The first

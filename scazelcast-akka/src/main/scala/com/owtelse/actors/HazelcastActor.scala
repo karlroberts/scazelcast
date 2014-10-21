@@ -69,7 +69,7 @@ trait HazelcastService {
 }
 
 trait IdGen { self: HazelcastService =>
-  import com.owtelse.scazelcast.{IdGenerator => Gen}
+  import com.owtelse.scazelcast.{HazelcastIdGenerator => Gen}
   def initIDGen(i: Long) = Gen.init(hazelcast, idGenName)(i)
   def newId = Gen.newId(hazelcast, idGenName)
 }
