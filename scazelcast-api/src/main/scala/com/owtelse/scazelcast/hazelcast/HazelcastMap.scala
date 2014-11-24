@@ -11,7 +11,7 @@ import com.hazelcast.core.HazelcastInstance
 /**
  * Created by robertk on 21/06/14.
  */
-trait HazelcastMap
+object HazelcastMap
 {
 
   import com.hazelcast.query.Predicate

@@ -17,6 +17,8 @@
     <!-- Uncomment for logging ONLY FAILED HTTP request and responses -->
     <!-- 	<logger name="com.excilys.ebi.gatling.http" level="DEBUG" /> -->
 
+    <logger name="akka" level="INFO" />
+
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
     </root>

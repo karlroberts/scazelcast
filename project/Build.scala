@@ -6,7 +6,7 @@ import Keys._
 object BuildSettings {
   import Resolvers._
 
-  val versionV = "0.1"
+  val versionV = "0.2-SNAPSHOT"
 
   val paradiseVersion = "2.0.0"
 
@@ -15,8 +15,8 @@ object BuildSettings {
   val nscalaV = "1.0.0"
 
   val coreDeps = Seq(
-    "org.scalaz" %% "scalaz-core" % "7.0.3" ,
-    "com.hazelcast"       %   "hazelcast"      % hazelcastV,
+    "org.scalaz" %% "scalaz-core" % "7.0.3",
+    "com.hazelcast"       %   "hazelcast"      % hazelcastV withSources() withJavadoc(),
     "com.github.nscala-time" %% "nscala-time" % nscalaV,
     "org.specs2"          %%  "specs2-core"   % "2.3.9"  % "test" withSources() withJavadoc(),
     "org.scalacheck"      %%  "scalacheck"    % "1.11.3" % "test" withSources() withJavadoc()
@@ -60,7 +60,7 @@ object MyBuild extends Build {
 
   lazy val scazelcastApi: Project = Project(
     "scazelcast-api",
-    file("scazelcast"),
+    file("scazelcast-api"),
     settings = buildSettings
   ) dependsOn(macros)
 

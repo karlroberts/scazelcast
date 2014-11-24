@@ -50,12 +50,14 @@ with HazelcastService
 
   def receive = receiveNormal
 
-  import com.owtelse.scazelcast.Map._
+
+  //TODO should really rely on a IdGen[T] type-class rather than hard object implementation
+  import com.owtelse.scazelcast.hazelcast.{HazelcastMap => HzMap}
   def receiveNormal: Receive = {
     case GetPosRep(key) => {
-      sender ! get(hazelcast, mapName)(key) // sender needs to handle None or Some(PositionReport)
+      sender ! HzMap.get(hazelcast, mapName)(key) // sender needs to handle None or Some(PositionReport)
     }
-    case PutPosRep(key, value) => put(hazelcast, mapName)(key, value)
+    case PutPosRep(key, value) => HzMap.put(hazelcast, mapName)(key, value)
     case wtf => unhandled(s"Dont know what to do with this ${wtf.toString}")
   }
 
@@ -68,8 +70,9 @@ trait HazelcastService {
   val idGenName: String
 }
 
+//TODO should really rely on a IdGen[T] type-class rather than hard object implementation
 trait IdGen { self: HazelcastService =>
-  import com.owtelse.scazelcast.{HazelcastIdGenerator => Gen}
+  import com.owtelse.scazelcast.hazelcast.{HazelcastIdGenerator => Gen}
   def initIDGen(i: Long) = Gen.init(hazelcast, idGenName)(i)
   def newId = Gen.newId(hazelcast, idGenName)
 }
