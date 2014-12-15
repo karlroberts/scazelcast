@@ -22,9 +22,10 @@ trait HCConfigTests extends Specification {
 
   def e1 = {
     import DistCacheConfig._
+    import FluentApi._
     val config: Config = new Config()
     val c2: Config = config.enableMulticast(false)
-
+//    val c2: Config = config.withWriteThrough ("myMap")
 
     c2.getNetworkConfig.getJoin.getMulticastConfig.isEnabled must_== false
   }

@@ -106,6 +106,7 @@ trait DistCacheConfig[C] {
   def withWriteThrough(config: C): String => C
 //  def withMapWriteThrough[MC: HCMapConfig](mapname: String)(config: C): MC
   def onMap(mapName: String)(f: String => C): C = f(mapName)
+//  def map[B: DistCacheConfig](f: C => B)(config: C): DistCacheConfig[B] = { f(config); implicitly[DistCacheConfig[B]] }
 }
 
 
@@ -136,54 +137,86 @@ trait DistCacheInstances {
   //
   //implicit def ConfigToHzConfig[Config: DistCacheConfig](c: Config) = implicitly[DistCacheConfig[Config]]
 
-  /**
-   * Allows a more fluent API by pimping instances of HCConfig.
-   * e.g. withMulticast
-   * @tparam C
-   */
-  implicit class HzConfigFluentApi[C: DistCacheConfig](conf: C)  {
-    import HzConfigFluentApi._
-      //could use implicit conversion func ConfigToHzConfig like this
-      // conf.withMulticast(true)(conf) ;
-      //
-      //or just be honest about it like this
-//      adaptor.withMulticast(enable)(conf) }
+
+}
+
+/**
+ * Allows a more fluent API by pimping instances of HCConfig.
+ * e.g. withMulticast
+ */
+
+object FluentApi {
+
+  implicit class HzConfigFluentApi[C : DistCacheConfig](conf: C) {
+    //    implicit class HzConfigFluentApi[C](conf: C)(implicit evidence: C =:= Config)  {
+
+
+    //could use implicit conversion func ConfigToHzConfig like this
+    // conf.withMulticast(true)(conf) ;
+    //
+    //or just be honest about it like this
+    //      adaptor.withMulticast(enable)(conf) }
+
     val adaptor = implicitly[DistCacheConfig[C]]
+
+
+    //HazelcastConfigInstance
     def enableMulticast(enable: Boolean): C = adaptor.withMulticast(enable)(conf)
-    def withWriteThrough: String => C = { adaptor.withWriteThrough(conf)}
+//    def enableMulticast(enable: Boolean)(implicit adaptor: DistCacheConfig[Config]): Config = adaptor.withMulticast(enable)(conf)
+
+//    def withWriteThrough(implicit adaptor: DistCacheConfig[Config]): String => Config = {
+//      adaptor.withWriteThrough(conf)
+//    }
+def withWriteThrough: String => C = { adaptor.withWriteThrough(conf) }
 
     def doMulticast(b: Boolean) = adaptor.withMulticast(b) _
-    def wibbleWirteThrough = adaptor.withWriteThrough
+//    def doMulticast(b: Boolean)(implicit adaptor: DistCacheConfig[Config]) = implicitly[DistCacheConfig[Config]].withMulticast(b) _
+
+    def wibbleWirteThrough = adaptor.withWriteThrough _
+//    def wibbleWirteThrough(implicit adaptor: DistCacheConfig[Config]) = implicitly[DistCacheConfig[Config]].withWriteThrough _
 
     /**
      * Just returns the name of the map to allow english style """ withWriteThrough onMap "mapName" """
      */
+//    def onMap(mapName: String)(implicit adaptor: DistCacheConfig[Config]) = adaptor.onMap(mapName) _
     def onMap(mapName: String) = adaptor.onMap(mapName) _
 
-    def map[B](f: C => B): B = f(conf)
-    def flatMap[B](f: C => HzConfigFluentApi[B]): HzConfigFluentApi[B] = f(conf)
+    def map[B: DistCacheConfig](f: C => B): HzConfigFluentApi[B] = new HzConfigFluentApi[B](f(conf))
+//    def map(f: Config => Config): HzConfigFluentApi = new HzConfigFluentApi(f(conf))
+
+
+    def flatMap[B: DistCacheConfig](f: C => HzConfigFluentApi[B]): HzConfigFluentApi[B] = f(conf)
+//    def flatMap(f: Config => HzConfigFluentApi): HzConfigFluentApi = f(conf)
   }
 
-  object HzConfigFluentApi{
+  object HzConfigFluentApiInstances {
+
     import scalaz.Monad
 
-    def apply[C: DistCacheConfig](conf: C) = new HzConfigFluentApi[C](conf)
+//    def apply[Config: DistCacheConfig](conf: Config) = new HzConfigFluentApi(conf)
+    def apply(conf: Config) = new HzConfigFluentApi(conf)
 
     // HzConfigFluentAPI instances
-    implicit object fluentAPIMonadInstace extends Monad[HzConfigFluentApi] {
-
-      override def point[A](a: => A): HzConfigFluentApi[A] = new HzConfigFluentApi[A](a)
-
-      override def bind[A, B](fa: HzConfigFluentApi[A])(f: (A) => HzConfigFluentApi[B]): HzConfigFluentApi[B] =
-        fa.flatMap(f)
-    }
+//      implicit def hzConfigFluentApiMonad[C](implicit adaptor: DistCacheConfig[C]): Monad[HzConfigFluentApi] = new HzFluentApiMonad[C] {
+//      implicit def _conf = adaptor
+//    }
+//
+//    private trait HzFluentApiMonad[C] extends Monad[HzConfigFluentApi] {
+//      implicit def _conf : DistCacheConfig[C]
+//
+//      override def point[A](a: => A): HzConfigFluentApi[A] = new HzConfigFluentApi(a)
+//
+//      override def bind[A, B ](fa: HzConfigFluentApi[A])(f: A => HzConfigFluentApi[B]): HzConfigFluentApi[B] = fa.flatMap(f)
+//    }
   }
 
-  // TODO would this be simpler? this way give nice syntax i can do config.withMulticast(true)... but is implicit conversion
-  // TODO danger i think? prefer typeclass, how do I get prety syntax?
-  //    implicit class HZConfigWrapper(config: Config) {
-  //      def withMulticast(enable: Boolean): Config = {
-  //        HazelcastConfig.withMulticast(enable)(config)
-  //      }
-  //    }
+    // TODO would this be simpler? this way give nice syntax i can do config.withMulticast(true)... but is implicit conversion
+    // TODO danger i think? prefer typeclass, how do I get prety syntax?
+    //    implicit class HZConfigWrapper(config: Config) {
+    //      def withMulticast(enable: Boolean): Config = {
+    //        HazelcastConfig.withMulticast(enable)(config)
+    //      }
+    //    }
+
+
 }

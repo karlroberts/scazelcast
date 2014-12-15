@@ -3,23 +3,28 @@ import Keys._
 
 
 
+object Versions {
+  val nscalaV = "1.2.0"
+  val scalazV = "7.1.0"
+
+  val specs2V = "2.4.1"
+  val scalacheckV = "1.11.3"
+  val paradiseVersion = "2.0.0"
+  val hazelcastV = "3.2.4"
+}
 object BuildSettings {
   import Resolvers._
 
+  import Versions._
+
   val versionV = "0.2-SNAPSHOT"
 
-  val paradiseVersion = "2.0.0"
-
-  val hazelcastV = "3.2.1"
-
-  val nscalaV = "1.0.0"
-
   val coreDeps = Seq(
-    "org.scalaz" %% "scalaz-core" % "7.0.3",
+    "org.scalaz" %% "scalaz-core" % scalazV withSources() withJavadoc(),
     "com.hazelcast"       %   "hazelcast"      % hazelcastV withSources() withJavadoc(),
     "com.github.nscala-time" %% "nscala-time" % nscalaV,
-    "org.specs2"          %%  "specs2-core"   % "2.3.9"  % "test" withSources() withJavadoc(),
-    "org.scalacheck"      %%  "scalacheck"    % "1.11.3" % "test" withSources() withJavadoc()
+    "org.specs2"          %%  "specs2-core"   % specs2V  % "test" withSources() withJavadoc(),
+    "org.scalacheck"      %%  "scalacheck"    % scalacheckV % "test" withSources() withJavadoc()
   )
 
   val buildSettings = Defaults.defaultSettings ++ Seq(
@@ -37,6 +42,7 @@ object BuildSettings {
 
 object MyBuild extends Build {
   import BuildSettings._
+  import Versions._
 
   lazy val root: Project = Project(
     "scazelcast-all",

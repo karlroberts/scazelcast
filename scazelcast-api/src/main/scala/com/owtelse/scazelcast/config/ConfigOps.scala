@@ -113,7 +113,7 @@ trait MapConfigLenz {
     (mc,v) => mc.setEntryListenerConfigs(v), _.getEntryListenerConfigs)
   // cant get a specific EntryListener but stll may be useful to add one???
   val entryListenerConfigL = Lens.lensu[MapConfig, EntryListenerConfig](
-    (mc,v) => {mc.addEntryListenerConfig(v)}, ???)
+    (mc,v) => {mc.addEntryListenerConfig(v)}, _.getEntryListenerConfigs.get(0)) //TODO get(0) is useless need a real one
   val mapIndexConfigsL = Lens.lensu[MapConfig, JList[MapIndexConfig]](
     (mc,v) => mc.setMapIndexConfigs(v), _.getMapIndexConfigs)
   val partitionStrategyConfigL = Lens.lensu[MapConfig, PartitioningStrategyConfig](
@@ -123,6 +123,6 @@ trait MapConfigLenz {
 
 
 
-object ConfigOps extends ConfigLenz with NetworkConfigLenz with JoinConfigLenz with MapConfigLenz {
+object ConfigOps extends ConfigLenz with NetworkConfigLenz  with JoinConfigLenz with MapConfigLenz {
   // TODO maybe move this to the config trait?
 }
