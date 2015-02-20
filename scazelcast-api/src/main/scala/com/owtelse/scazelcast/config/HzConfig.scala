@@ -47,9 +47,6 @@ trait HzConfig {
   def withStore(storeClassName: String) = (mapName:String) => (mapConfigL(mapName) >=> mapStoreConfigL) =>= {
     _.setClassName(storeClassName)
   }
-
-
-
 }
 
 /**
@@ -129,7 +126,7 @@ trait DistCacheInstances {
           val x = c andThen(_.getMapConfig(mapname))
           x(config)
         } */
-    override def withWriteThrough(config: Config): String => Config = (mapName: String) => enableWriteThrough(mapName)(config)
+    override def withWriteThrough(config: Config): String => Config = (mapName: String) => { println(s"=====> we have found ${mapName} and config = ${config}"); enableWriteThrough(mapName)(config)}
 
   }
 
@@ -148,52 +145,32 @@ trait DistCacheInstances {
 object FluentApi {
 
   implicit class HzConfigFluentApi[C : DistCacheConfig](conf: C) {
-    //    implicit class HzConfigFluentApi[C](conf: C)(implicit evidence: C =:= Config)  {
-
-
-    //could use implicit conversion func ConfigToHzConfig like this
-    // conf.withMulticast(true)(conf) ;
-    //
-    //or just be honest about it like this
-    //      adaptor.withMulticast(enable)(conf) }
 
     val adaptor = implicitly[DistCacheConfig[C]]
 
-
-    //HazelcastConfigInstance
     def enableMulticast(enable: Boolean): C = adaptor.withMulticast(enable)(conf)
-//    def enableMulticast(enable: Boolean)(implicit adaptor: DistCacheConfig[Config]): Config = adaptor.withMulticast(enable)(conf)
 
-//    def withWriteThrough(implicit adaptor: DistCacheConfig[Config]): String => Config = {
-//      adaptor.withWriteThrough(conf)
-//    }
-def withWriteThrough: String => C = { adaptor.withWriteThrough(conf) }
+    def withWriteThrough: String => C = { adaptor.withWriteThrough(conf) }
 
     def doMulticast(b: Boolean) = adaptor.withMulticast(b) _
-//    def doMulticast(b: Boolean)(implicit adaptor: DistCacheConfig[Config]) = implicitly[DistCacheConfig[Config]].withMulticast(b) _
 
     def wibbleWirteThrough = adaptor.withWriteThrough _
-//    def wibbleWirteThrough(implicit adaptor: DistCacheConfig[Config]) = implicitly[DistCacheConfig[Config]].withWriteThrough _
 
     /**
      * Just returns the name of the map to allow english style """ withWriteThrough onMap "mapName" """
      */
-//    def onMap(mapName: String)(implicit adaptor: DistCacheConfig[Config]) = adaptor.onMap(mapName) _
     def onMap(mapName: String) = adaptor.onMap(mapName) _
 
     def map[B: DistCacheConfig](f: C => B): HzConfigFluentApi[B] = new HzConfigFluentApi[B](f(conf))
-//    def map(f: Config => Config): HzConfigFluentApi = new HzConfigFluentApi(f(conf))
-
 
     def flatMap[B: DistCacheConfig](f: C => HzConfigFluentApi[B]): HzConfigFluentApi[B] = f(conf)
-//    def flatMap(f: Config => HzConfigFluentApi): HzConfigFluentApi = f(conf)
   }
 
+  // N.B. this can't be a companion class of HzConfigFluentApi or else it would break the Rules about implicit Classes
+  // not sharing a name with any other entity in scope.
   object HzConfigFluentApiInstances {
+//    import scalaz.Monad
 
-    import scalaz.Monad
-
-//    def apply[Config: DistCacheConfig](conf: Config) = new HzConfigFluentApi(conf)
     def apply(conf: Config) = new HzConfigFluentApi(conf)
 
     // HzConfigFluentAPI instances

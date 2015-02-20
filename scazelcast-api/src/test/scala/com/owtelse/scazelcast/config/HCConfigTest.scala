@@ -94,21 +94,31 @@ trait HCConfigTests extends Specification {
     prop1 and prop2 and prop3 and prop4
   }
 
+  //Get and Set then test get
   def e4 = {
     import ConfigOps._
     val c1: Config = new Config()
-
     //set unknow Key
     val mc1 = mapConfigL("k1").get(c1)
+
     val cc1 = mapConfigL("k1").set(c1, mc1.setBackupCount(3))
     val prop1 = cc1.getMapConfig("k1").getBackupCount must_== 3
+    val ukmc = new MapConfig("k2")
+    val cc2 = mapConfigL("k2").set(c1, ukmc.setBackupCount(5))
+    val prop2 = cc2.getMapConfig("k2").getBackupCount must_== 5
 
-    //modify unknown key
 
-    //get unknown key
 
-    prop1
+    //set again should overright
+    /// Woah! IllegalArgumentException: : total (sync + async) map backup count must be less than 6  (MapConfig.java:183)
+    // Jesus! the error message is wrong should be less than or equal to 6....
+    val cc3 = mapConfigL("k1").set(c1, mc1.setBackupCount(6))
+    val prop3 = cc1.getMapConfig("k1").getBackupCount must_== 6
+
+    prop1 and prop2 and prop3
   }
+
+
 
 
 

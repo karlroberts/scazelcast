@@ -12,6 +12,7 @@ object Versions {
   val paradiseVersion = "2.0.0"
   val hazelcastV = "3.2.4"
 }
+
 object BuildSettings {
   import Resolvers._
 
