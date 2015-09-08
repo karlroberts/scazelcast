@@ -37,7 +37,11 @@ trait HzConfig {
     { _.setEnabled(enable) }
 
   def enableMapWriteBehind(delaySec: Int) = (mapName:String) =>
-    (mapConfigL(mapName) >=> mapStoreConfigL) =>= { msc =>
+    (mapConfigL(mapName) >=> mapStoreConfigL) =>= {
+        msc =>
+      val theMsc = {if(msc == null)
+       new MapStoreConfig()
+      else msc}
       msc.setEnabled(true)
       msc.setWriteDelaySeconds(delaySec) // 0 seconds makes it writeThrough not writeBehind
     }
@@ -126,7 +130,17 @@ trait DistCacheInstances {
           val x = c andThen(_.getMapConfig(mapname))
           x(config)
         } */
-    override def withWriteThrough(config: Config): String => Config = (mapName: String) => { println(s"=====> we have found ${mapName} and config = ${config}"); enableWriteThrough(mapName)(config)}
+    override def withWriteThrough(config: Config): String => Config = (mapName: String) =>
+    { println(s"=====> we have found ${mapName} and config = ${config}")
+      // FIXME hack build config structure befre using lens!!! do it in enableWrtiteThrough as I need MapName and config
+      // TODO we should really have our own immutable data structure, set all the bits with Lens
+      // TODO then convert it to the Hazelcast config structure.
+      val mc = config.getMapConfig(mapName) //java getter has sideffect to create
+      var msc = mc.getMapStoreConfig(); //java getter has side effect to create
+      msc = if(msc == null) new MapStoreConfig() else msc
+      mc.setMapStoreConfig(msc)
+      enableWriteThrough(mapName)(config)
+    }
 
   }
 
