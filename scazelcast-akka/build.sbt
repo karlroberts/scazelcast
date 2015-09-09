@@ -6,7 +6,7 @@ resolvers += sprayRepo
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
 libraryDependencies ++= {
-  val akkaV = "2.3.0"
+  val akkaV = "2.3.13"
   Seq(
     "com.owtelse"       %%   "scazelcast-api"      % versionV,
     "com.typesafe.akka"   %%  "akka-actor"     % akkaV,

@@ -9,7 +9,7 @@ object Versions {
 
   val specs2V = "2.4.1"
   val scalacheckV = "1.11.3"
-  val paradiseVersion = "2.0.0"
+  val paradiseVersion = "2.1.0-M5"
   val hazelcastV = "3.2.4"
 }
 
@@ -32,8 +32,8 @@ object BuildSettings {
     organization := "com.owtelse",
     version := versionV,
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-encoding", "utf8"),
-    scalaVersion := "2.10.4",
-    crossScalaVersions := Seq("2.10.2", "2.10.3", "2.10.4"), //, "2.11.0", "2.11.1"),
+    scalaVersion := "2.11.6",
+    crossScalaVersions := Seq("2.10.2", "2.10.3", "2.10.4", "2.11.0", "2.11.1"),
     resolvers += Resolver.sonatypeRepo("snapshots"),
     resolvers += Resolver.sonatypeRepo("releases"),
     addCompilerPlugin("org.scalamacros" % "paradise" % paradiseVersion cross CrossVersion.full),
