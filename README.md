@@ -30,11 +30,16 @@ The project is broken into a number of separate .jar files that depend on each o
   
 ## Usage
 
-Add to your project/sbt-web-s3.sbt the following lines:-
+Add to your project/build.sbt the following lines:-
 
     resolvers += Resolver.url("owtelse-repo-oss", new URL("https://s3-ap-southeast-2.amazonaws.com/owtelse-repo-oss/"))(Resolver.ivyStylePatterns)
-
-    addSbtPlugin("com.owtelse" % "scazelcast-api" % "2.11-0.2.2-20150914093320-2571380")
+    
+    libraryDependencies ++= {
+      val scazelcastV = "2.11-0.2.2-20150914102020-04d1469"
+      Seq(
+        "com.owtelse"       %   "scazelcast-api"      % scazelcastV
+      )
+    }
 
 ## Features implemented
 
