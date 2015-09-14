@@ -26,6 +26,15 @@ The project is broken into a number of separate .jar files that depend on each o
 * scazelcast-demo
   - Depends on scazelcast-akka.
   - Working web-app using Spray-IO and scazelcast-akka to demo and play with use cases.
+  
+  
+## Usage
+
+Add to your project/sbt-web-s3.sbt the following lines:-
+
+    resolvers += Resolver.url("owtelse-repo-oss", new URL("https://s3-ap-southeast-2.amazonaws.com/owtelse-repo-oss/"))(Resolver.ivyStylePatterns)
+
+    addSbtPlugin("com.owtelse" % "scazelcast-api" % "0.2.2-20150812074940-deac20e")
 
 ## Features implemented
 

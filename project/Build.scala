@@ -1,7 +1,16 @@
+import com.amazonaws.services.s3.model.Region
+import com.ambiata.promulgate.project.ProjectPlugin.promulgate
+import ohnosequences.sbt.SbtS3Resolver.{S3Resolver, s3 => ss33, _}
+import sbt.Keys._
 import sbt._
-import Keys._
 
+object ProjectSettings {
+  val organisation = "com.owtelse"
+  val isSnapshot = true
+  private[this] val versionNum = "0.2.2"
+  val version = if(isSnapshot) versionNum else versionNum + "-SNAPSHOT"
 
+}
 
 object Versions {
   val nscalaV = "1.2.0"
@@ -14,8 +23,6 @@ object Versions {
 }
 
 object BuildSettings {
-  import Resolvers._
-
   import Versions._
 
   val versionV = "0.2-SNAPSHOT"
@@ -29,8 +36,8 @@ object BuildSettings {
   )
 
   val buildSettings = Defaults.defaultSettings ++ Seq(
-    organization := "com.owtelse",
-    version := versionV,
+    organization := ProjectSettings.organisation,
+    version in ThisBuild := ProjectSettings.version,
     scalacOptions ++= Seq("-unchecked", "-deprecation", "-encoding", "utf8"),
     scalaVersion := "2.11.6",
     crossScalaVersions := Seq("2.10.2", "2.10.3", "2.10.4", "2.11.0", "2.11.1"),
@@ -38,6 +45,12 @@ object BuildSettings {
     resolvers += Resolver.sonatypeRepo("releases"),
     addCompilerPlugin("org.scalamacros" % "paradise" % paradiseVersion cross CrossVersion.full),
     libraryDependencies ++= coreDeps
+  ) ++ S3Resolver.defaults ++ Seq(
+    publishMavenStyle           := false
+    , publishArtifact in Test     := false
+    , pomIncludeRepository        := { _ => false }
+    , publishTo                   <<= (s3credentials).apply((creds) =>
+      Some(S3Resolver(creds, false, Region.AP_Sydney)("owtelse-oss-publish", ss33("owtelse-repo-oss")).withIvyPatterns))
   )
 }
 
@@ -50,7 +63,7 @@ object MyBuild extends Build {
     file("."),
     settings = buildSettings ++ Seq(
       run <<= run in Compile in scazelcastApi
-    )
+    )  ++ promulgate.library("com.owtelse", "owtelse-repo-oss")
   ) aggregate(macros, scazelcastApi, scazelcastAkka, scazelcastDemo)
 
   lazy val macros: Project = Project(
