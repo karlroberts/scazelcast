@@ -30,7 +30,14 @@ The project is broken into a number of separate .jar files that depend on each o
   
 ## Usage
 
-Add to your project/build.sbt the following lines:-
+Add the following to your project's project/plugins.sbt file:-
+
+    //resolver for sbt-s3-resolver
+    resolvers += "Era7 maven releases" at "http://releases.era7.com.s3.amazonaws.com"
+    
+    addSbtPlugin("ohnosequences" % "sbt-s3-resolver" % "0.12.0")
+
+Add the following lines to your projects build.sbt:-
 
     resolvers += Resolver.url("owtelse-repo-oss", new URL("https://s3-ap-southeast-2.amazonaws.com/owtelse-repo-oss/"))(Resolver.ivyStylePatterns)
     
