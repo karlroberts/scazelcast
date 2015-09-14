@@ -34,7 +34,7 @@ Add to your project/sbt-web-s3.sbt the following lines:-
 
     resolvers += Resolver.url("owtelse-repo-oss", new URL("https://s3-ap-southeast-2.amazonaws.com/owtelse-repo-oss/"))(Resolver.ivyStylePatterns)
 
-    addSbtPlugin("com.owtelse" % "scazelcast-api" % "0.2.2-20150812074940-deac20e")
+    addSbtPlugin("com.owtelse" % "scazelcast-api" % "2.11-0.2.2-20150914093320-2571380")
 
 ## Features implemented
 
